@@ -1,0 +1,437 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body{
+	min-height: 100vh;
+	min-width: 100vh;
+	background: #fff;
+    font-family: 'Poppins',sans-serif;
+}
+
+/* Body Start */
+/* navigation start */
+.navigation{
+	position: fixed;
+	top:20px;
+	left: 20px;
+	bottom: 20px;
+	width: 60px;
+    box-sizing:initial ;
+    border-radius: 10px;
+	border-left: 5px solid black;
+	background: black;
+	transition: 0.5s;
+	overflow-x:hidden;
+}
+
+.navigation.active{
+	width: 300px;
+}
+.navigation ul{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	padding-left: 5px;
+	padding-top: 40px;
+}
+
+.navigation ul li{
+	position: relative;
+	list-style:none;
+	width: 100%;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.navigation ul li.icon-box{
+	background-color: #fff;
+	padding-top: 10px;
+}
+
+.navigation ul li a{
+	position: relative;
+	display: block;	
+	width: 100%;
+	display: flex;
+	text-decoration: none;
+	color:#fff;
+}
+
+.navigation ul li.icon-box a{
+	color: #333;
+}
+
+.navigation ul li a .icon{
+	position: relative;
+	min-width: 50px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+	font-size: 1.5em;
+}
+
+.navigation ul li a .title{
+	position: relative;
+	display: block;
+	padding-left: 10px;
+	height: 60px;
+	line-height: 60px;
+	white-space: normal;
+
+}
+/* navigation ends*/
+.toggle{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	background-color: rgb(8, 8, 8);
+	cursor: pointer;
+	display:none;
+	justify-content: center;
+	align-items:center;
+
+
+}
+
+.toggle.active{
+	background:rgb(12, 12, 12);
+}
+
+.toggle ion-icon{
+	position: absolute;
+	color:white;
+	font-size: 34px;
+	display: none;
+}
+
+.toggle ion-icon.open,
+.toggle.active ion-icon.close{
+	display: block;
+}
+.toggle ion-icon.close,
+.toggle.active ion-icon.open{
+	display: none;
+}
+
+/* body ends*/
+
+
+/*section heading starts*/
+.about-overlap h1{
+    font-size: 3.5em;
+    text-align: center;
+	font-family:'FontAwesome';
+    color: #222;
+	margin-top: 50px;
+}
+
+.about-overlap h1 span{
+	color: #888;
+}
+
+.personal-info h2{
+	font-size: 30px;
+	font-family:'FontAwesome';
+	text-align: center;
+	color: #777;
+	padding-top: 70px;
+}
+.personal-info1 h2{
+	font-size: 30px;
+	font-family:'FontAwesome';
+	text-align: center;
+	color: #777;
+	padding-top: 70px;
+	margin-bottom:30px ;
+}
+
+.personal-info1{
+	margin-bottom: 100px;
+}
+
+.row{
+	display:flex;
+	flex-wrap: wrap;
+	text-align: left;
+	padding-top: 30px;
+	width: auto;
+	font-size: 19px;
+	font-family:'Poppins', sans-serif;;
+	padding-left: 150px;
+	
+}
+
+span.title{
+	font-size: 19px;
+	font-family:'Poppins', sans-serif;
+	color: #444;
+}
+span.content{
+	font-size: 19px;
+	font-family:'Poppins', sans-serif;
+	color:#777
+}
+.about-list-left li p{
+	color:#777;
+	font-size: 17px;
+}
+.col-6 ul li{
+	list-style-type: none;
+}
+
+.about-list-left{
+	padding-left: 150px;
+	word-spacing: normal;
+}
+
+.about-list-right{
+	padding-left: 180px;
+}
+.btn{
+	font-size: 14px;
+	color: #fff;
+    text-decoration: none;
+	box-shadow: none !important;
+    border-radius: 26px;
+    line-height: 46px;
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none !important;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+	background-color: #111;
+	border-bottom-left-radius:26px ;
+	border-bottom-right-radius: 26px;
+	cursor:pointer;
+	letter-spacing: 0.5px;
+	line-height: 46px;
+	padding-left: 28px;
+	padding-right: 28px;
+	left: 0;
+}
+
+.btn-box{
+	padding-top: 25px;
+	padding-left: 290px;
+}
+
+
+.about-list-left,.about-list-right{
+	box-sizing: border-box;
+	height: auto;
+	width: auto;
+}
+
+.skills-container{
+	align-items: center;
+	margin-left: -60px;
+	margin-bottom: 80px;
+}
+/* Skill container starts */
+.wrapper{
+	width: 500px;
+	display: flex;
+	align-items: center;
+}
+
+.contsiner{
+	height: 150px;
+	width: 250px;
+	margin-left: 300px;
+	margin-top: 30px;
+	text-align: center;
+	padding-top: 30px;
+}
+
+/* skill container circles with percentage starts*/
+.circular-progress{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+
+.circular-progress1{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress1::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container1{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+.circular-progress2{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress2::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container2{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+
+.circular-progress3{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress3::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container3{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+
+.circular-progress4{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress4::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container4{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+
+.circular-progress5{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	background-color: #333;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: conic-gradient(#222 3.6deg, #999 0deg);
+}
+.circular-progress5::before{
+	content: "";
+	position: absolute;
+	height: 84%;
+	width: 84%;
+	background-color: white;
+	border-radius: 50%;
+}
+.value-container5{
+	position: relative;
+	font-size: 20px;
+	font-family:'Poppins',sans-serif;
+	color: #555;
+}
+
+/* skill container circles with percentage ends*/
+.skil-text{
+	width: 100px;
+	font-size: 17px;
+	font-family: 'Poppins',sans-serif;
+	
+}
+/* Skill container ends*/
+
+@media screen and (min-width){
+	.about-list-left,.about-list-right{
+		height: auto;
+	}
+}
+
+.col-6-clg{
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+svg{
+	margin-left: 0px;
+	height: 20px;
+	width: 20px;
+}
+
+span .title-clg {
+	padding-left: 25px;
+	color: #111;
+}

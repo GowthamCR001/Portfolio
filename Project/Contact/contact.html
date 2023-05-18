@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gowtham-Personal Home</title>
+</head>
+
+<body>
+    <! -- HEADER Start -->
+
+        <header>
+            <div class="navigation">
+                <ul>
+                    <li class="icons icon-box">
+                        <a href="/Home/home.html">
+                            <span class="icon">
+                                <ion-icon href="/Home/home.html" name="home-outline"></ion-icon>
+                            </span>
+                    </li>
+                    <li class="icons">
+                        <a href="/About/about.html">
+                            <span class="icon">
+                                <ion-icon href="/About/about.html" name="person-outline"></ion-icon>
+                            </span><span class="title">ABOUT</span></a>
+                    </li>
+                    <li class="icons">
+                        <a href="#home">
+                            <span class="icon">
+                                <ion-icon name="briefcase-outline"></ion-icon>
+                            </span><span class="title">PORTFOLIO</span></a>
+                    </li>
+                    <li class="icons">
+                        <a href="#home">
+                            <span class="icon">
+                                <ion-icon name="call-outline"></ion-icon>
+                            </span><span class="title">CONTACT</span></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="toggle">
+                <ion-icon name="menu-outline" class="open"></ion-icon>
+                <ion-icon name="close-circle-outline" class="close"></ion-icon>
+            </div>
+        </header>
+
+
+        <div class="contact-overlap">
+            <h1><span>CONTACT</span> ME</h1>
+        </div>
+
+        <section>
+            <div class="container">
+                <div class="containerinfo">
+                    <div class="content01">
+                        <h2>Contact Info</h2>
+                        <ul class="info">
+                            <li>
+                                <span><img src="icons8-location-24.png"></span>
+                                <span>3rd Main, 11th cross Hemavathi NagaHassan -573201</span>
+                            </li>
+                            <li>
+                                <span><img src="icons8-phone-30.png" /></span>
+                                <span>+91-7483160450</span>
+                            </li>
+                            <li>
+                                <span> <img src="icons8-send-30.png"></span>
+                                <span>gcr.gowthamcr001@gmail.com</span>
+                            </li>
+                        </ul>
+
+                        <ul class="sci">
+                            <a href="#"><img src="facebook.png"></a>
+                            <a href="#"><img src="twitter.png"></a>
+                            <a href="#"><img src="icons8-instagram-32.png"></a>
+                            <a href="#"><img src="icons8-linkedin-30.png"></a>
+
+                        </ul><br>
+                    </div>
+                </div>
+                <div class="contactForm">
+                    <h2> Send a Message</h2>
+                    <div class="formBox">
+                        <div class="inputBox w50">
+                            <input type="text" name="" required>
+                            <span>First Name</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="" required>
+                            <span>Last Name</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="" required>
+                            <span>Email Address</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="" required>
+                            <span>Mobile Number</span>
+                        </div>
+                        <div class="inputBox w100">
+                            <textarea name="" required></textarea>
+                            <span>Write your Message here.......</span>
+                        </div>
+                        <div class="inputBox w100">
+                            <input type="submit" value="Send">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script>
+            let menuToggle = document.querySelector(".toggle");
+            let navigation = document.querySelector(".navigation");
+            menuToggle.onclick = function () {
+                menuToggle.classList.toggle("active");
+                navigation.classList.toggle("active");
+            };
+            function toggleMenu() {
+                var menuToggle = document.querySelector(".toggle");
+                var menu = document.querySelector(".menu");
+                menuToggle.classList.toggle("active");
+                menu.classList.toggle("active");
+            }
+
+            // add active selected list icons
+            let icons = document.querySelectorAll(".icons");
+            for (let i = 0; i < icons.length; i++) {
+                icons[i].onclick = function () {
+                    let j = 0;
+                    while (j < icons.length) {
+                        icons[j++].className = "icons";
+                    }
+                    icons[i].className = "icons icon-box";
+                };
+            }
+        </script>
+</body>
+
+</html>
