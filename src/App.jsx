@@ -23,6 +23,8 @@ const ScrollToTop = () => {
   return null;
 };
 
+import ScrollTopButton from './components/ScrollTopButton';
+
 const MainContent = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -43,6 +45,7 @@ const MainContent = () => {
         <Route path="/project/:id" element={<ProjectDetails />} />
       </Routes>
       {!isHomePage && <Footer />}
+      <ScrollTopButton />
     </div>
   );
 };

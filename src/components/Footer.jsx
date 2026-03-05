@@ -54,7 +54,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <a id="scroll-top"><span className="icon-arrow-top"></span></a>
         </footer>
     );
 };
