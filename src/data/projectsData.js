@@ -71,7 +71,7 @@ export const projectsData = [
         title: "HKS International School",
         date: "February 18, 2024",
         mainImage: "/assets/images/Project/hks-web.png",
-        adminImage: "/assets/images/Project/hks-admin.png",
+        adminImage: "/assets/images/Project/hks-web-admin.png",
         description: "Official website for HKS International School, providing information on curriculum, admissions, and school activities.",
         detailsContent: [
             "Engaging interface for parents and students.",
