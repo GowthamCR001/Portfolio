@@ -30,7 +30,7 @@ const Certificate = () => {
                         <h6 className="sub-heading"><span>Certificate</span></h6>
                         <h3 className="heading wow" data-splitting>That Showcase Our <br /> Expertise</h3>
                     </div>
-                    <div className="col-3">
+                    <div className="col-md-3 col-sm-12">
                         <div className="swiper team-swiper">
                             <div className="swiper-wrapper">
                                 <div className="swiper-slide">
