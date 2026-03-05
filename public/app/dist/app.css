@@ -1367,7 +1367,8 @@ a {
 #scroll-top span {
     transform: rotate(-180deg);
     display: block;
-    font-size: 12px;
+    font-size: 15px;
+    margin-top: 15px;
 }
 
 #scroll-top.show {
