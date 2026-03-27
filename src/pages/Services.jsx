@@ -140,17 +140,17 @@ const Services = () => {
                             <h6 className="sub-heading"><span>Collaboration</span></h6>
                             <h3 className="heading">Professional Services</h3>
                             <p className="mb-30" style={{ maxWidth: '700px', margin: '0 auto 30px' }}>
-                                Hire me for custom web development, UI/UX design, or technical consultations. 
+                                Hire me for custom web development, UI/UX design, or technical consultations.
                                 Use this portal to securely pay for project milestones and professional services.
                             </p>
                         </div>
 
                         <div className="row mt-12">
                             {/* Payment Form */}
-                            <div className="col-lg-7" data-aos="fade-right">
-                                <div className="payment-card" style={{ 
-                                    background: 'rgba(255,255,255,0.03)', 
-                                    padding: '40px', 
+                            <div className="col-lg-12" data-aos="fade-right">
+                                <div className="payment-card" style={{
+                                    background: 'rgba(255,255,255,0.03)',
+                                    padding: '40px',
                                     borderRadius: '30px',
                                     border: '1px solid rgba(255,255,255,0.05)',
                                     boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
@@ -160,12 +160,12 @@ const Services = () => {
                                         <div className="row">
                                             <div className="col-md-12 mb-4">
                                                 <label style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'block' }}>Client Name / Company</label>
-                                                <input 
-                                                    type="text" 
+                                                <input
+                                                    type="text"
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleInputChange}
-                                                    className="form-control" 
+                                                    className="form-control"
                                                     placeholder="Enter your name"
                                                     style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', height: '50px' }}
                                                 />
@@ -174,9 +174,9 @@ const Services = () => {
                                                 <label style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'block' }}>Service Amount (₹)</label>
                                                 <div className="d-flex gap-2 mb-3 flex-wrap">
                                                     {serviceOptions.map(amt => (
-                                                        <button 
-                                                            key={amt} 
-                                                            type="button" 
+                                                        <button
+                                                            key={amt}
+                                                            type="button"
                                                             onClick={() => selectAmount(amt)}
                                                             style={{
                                                                 background: formData.amount === amt.toString() ? '#5C27FE' : 'rgba(255,255,255,0.1)',
@@ -192,32 +192,32 @@ const Services = () => {
                                                         </button>
                                                     ))}
                                                 </div>
-                                                <input 
-                                                    type="number" 
+                                                <input
+                                                    type="number"
                                                     name="amount"
                                                     value={formData.amount}
                                                     onChange={handleInputChange}
-                                                    className="form-control" 
+                                                    className="form-control"
                                                     placeholder="Or enter custom amount"
                                                     style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', height: '50px' }}
                                                 />
                                             </div>
                                             <div className="col-12 mb-4">
                                                 <label style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'block' }}>Project Description / Message</label>
-                                                <textarea 
+                                                <textarea
                                                     name="message"
                                                     value={formData.message}
                                                     onChange={handleInputChange}
-                                                    className="form-control" 
+                                                    className="form-control"
                                                     rows="4"
                                                     placeholder="E.g. Payment for Web Design Milestone 1"
                                                     style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white' }}
                                                 ></textarea>
                                             </div>
-                                            <div className="col-12">
-                                                <button 
-                                                    type="submit" 
-                                                    className="action-btn w-100" 
+                                            <div className="col-5">
+                                                <button
+                                                    type="submit"
+                                                    className="action-btn w-100"
                                                     disabled={isSubmitting}
                                                     style={{ height: '60px', fontSize: '18px', fontWeight: 'bold' }}
                                                 >
