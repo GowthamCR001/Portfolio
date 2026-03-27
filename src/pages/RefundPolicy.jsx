@@ -30,18 +30,18 @@ const RefundPolicy = () => {
                         }}>
                             <div className="mb-4">
                                 <h6 style={{ color: 'white', marginBottom: '15px' }}>1. Introduction</h6>
-                                <p>Thank you for supporting my work. This Refund & Cancellation Policy explains the terms related to voluntary tips and donations made through our "Support My Work" (Buy Me a Coffee) feature.</p>
+                                <p>Thank you for collaborating on your project. This Refund & Cancellation Policy explains the terms related to professional services and project milestone payments made through our website.</p>
                             </div>
 
                             <div className="mb-4">
                                 <h6 style={{ color: 'white', marginBottom: '15px' }}>2. Refund Policy</h6>
-                                <p>All contributions, tips, and donations made via the "Support My Work" (Buy Me a Coffee) feature are voluntary. These payments are generally non-refundable once the transaction is completed.</p>
+                                <p>Payments made for professional services or project milestones are generally non-refundable once the work for that milestone has commenced or been completed.</p>
                                 <p>If you believe a transaction was made in error (e.g., accidental double charge), please contact us within 24 hours of the payment with your transaction details. We will review each case individually and, if verified, attempt to process a refund within 5-7 business days through the original payment method.</p>
                             </div>
 
                             <div className="mb-4">
                                 <h6 style={{ color: 'white', marginBottom: '15px' }}>3. Cancellation Policy</h6>
-                                <p>Since our services do not involve subscriptions or recurring charges, there is no ongoing cancellation required for a standard tip. Once a one-time payment is processed, it cannot be canceled.</p>
+                                <p>Clients may cancel a project booking at any time; however, payments already made for completed milestones or initial setup fees are non-refundable. Once a milestone payment is processed, it signifies acceptance of the deliverables for that stage.</p>
                             </div>
 
                             <div className="mb-4">

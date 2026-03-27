@@ -22,6 +22,7 @@ const Footer = () => {
                                     <li><Link to="/skill">Skills</Link></li>
                                     <li><Link to="/certificate">Certificates</Link></li>
                                     <li><Link to="/contact">Contact</Link></li>
+                                    <li><Link to="/services">Services</Link></li>
                                 </ul>
                                 <ul className="list mt-2" style={{ fontSize: '14px', opacity: 0.7 }}>
                                     <li><Link to="/privacy-policy">Privacy Policy</Link></li>

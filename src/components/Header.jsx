@@ -68,7 +68,7 @@ const Header = () => {
                             </div>
 
                             <div className="header__action">
-                                <Link to="/support" className="action-btn"><span>Tip for a Coffee</span></Link>
+                                <Link to="/services" className="action-btn"><span>Hire Me</span></Link>
                             </div>
                         </div>
                     </div>

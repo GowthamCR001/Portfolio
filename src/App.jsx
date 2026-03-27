@@ -10,7 +10,7 @@ import Certificate from './pages/Certificate';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import ProjectDetails from './pages/ProjectDetails';
-import Support from './pages/Support';
+import Services from './pages/Services';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import RefundPolicy from './pages/RefundPolicy';
@@ -43,7 +43,7 @@ const MainContent = () => {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/support" element={<Support />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />

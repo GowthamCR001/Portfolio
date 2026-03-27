@@ -45,7 +45,7 @@ const TermsConditions = () => {
 
                             <div className="mb-4">
                                 <h6 style={{ color: 'white', marginBottom: '15px' }}>4. Payment Terms</h6>
-                                <p>The "Support My Work" (Buy Me a Coffee) feature allows users to provide voluntary tips or donations to support my work. All payments are processed through Razorpay. By making a payment, you warrant that you are 18 years of age or older and have the legal right to use the payment method provided.</p>
+                                <p>The "Professional Services" payment feature allows clients to pay for software development, technical consultations, and project milestones. All payments are processed through Razorpay. By making a payment, you warrant that you are 18 years of age or older and have the legal right to use the payment method provided.</p>
                             </div>
 
                             <div className="mb-4">

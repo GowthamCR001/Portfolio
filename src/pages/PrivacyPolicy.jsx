@@ -37,8 +37,8 @@ const PrivacyPolicy = () => {
                                 <h6 style={{ color: 'white', marginBottom: '15px' }}>2. Information We Collect</h6>
                                 <p>We may collect the following types of information:</p>
                                 <ul>
-                                    <li><strong>Personal Identification Information:</strong> Name, email address, phone number, etc., when you fill out a contact form or support form.</li>
-                                    <li><strong>Payment Information:</strong> When you use our "Support My Work" feature, payments are processed securely via Razorpay. We do not store your credit/debit card details on our servers.</li>
+                                    <li><strong>Personal Identification Information:</strong> Name, email address, phone number, etc., when you fill out a contact form or professional service booking form.</li>
+                                    <li><strong>Payment Information:</strong> When you use our "Professional Services" payment feature, transactions are processed securely via Razorpay. We do not store your credit/debit card details on our servers.</li>
                                     <li><strong>Log Data:</strong> We may collect information that your browser sends whenever you visit our website.</li>
                                 </ul>
                             </div>

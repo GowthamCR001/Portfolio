@@ -20,6 +20,9 @@ export default async function handler(req, res) {
     amount: parseInt(amount) * 100, // Amount in paise
     currency,
     receipt,
+    notes: {
+        purpose: "Professional Software Development Services"
+    }
   };
 
   try {
