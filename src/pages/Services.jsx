@@ -145,7 +145,7 @@ const Services = () => {
                             </p>
                         </div>
 
-                        <div className="row mt-5">
+                        <div className="row mt-12">
                             {/* Payment Form */}
                             <div className="col-lg-7" data-aos="fade-right">
                                 <div className="payment-card" style={{ 
@@ -233,7 +233,7 @@ const Services = () => {
                             </div>
 
                             {/* Info Section */}
-                            <div className="col-lg-5 mt-5 mt-lg-0" data-aos="fade-left">
+                            <div className="col-lg-12 mt-5 mt-lg-0" data-aos="fade-left">
                                 <div style={{ paddingLeft: '20px' }}>
                                     <h4 style={{ color: 'white', marginBottom: '20px' }}>Professional Offerings</h4>
                                     <ul style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8' }}>
