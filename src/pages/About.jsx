@@ -207,6 +207,22 @@ const About = () => {
                 </div>
             </section>
 
+            <section className="business-info" style={{ padding: '60px 0', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8 text-center">
+                            <h4 style={{ color: 'white', marginBottom: '20px' }}>Business Information</h4>
+                            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '15px' }}>
+                                <p><strong>Entity Name:</strong> Gowtham C R (Individual Developer)</p>
+                                <p><strong>Email:</strong> gcr.gowthamcr001@gmail.com</p>
+                                <p><strong>Address:</strong> Hassan, Karnataka, India - 573201</p>
+                                <p><strong>Purpose:</strong> This website serves as a professional portfolio to showcase software development projects and design skills. The "Support My Work" feature allows visitors to provide voluntary tips to support the ongoing development of open-source projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section from about.html footer */}
             <section className="footer-cta" style={{ padding: '60px 0', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                 <div className="container">

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 
 const Project = () => {
+    const [activeTab, setActiveTab] = useState('All');
+
+    const categories = ['All', 'Web Development', 'App Development', 'Others'];
+
+    const filteredProjects = activeTab === 'All' 
+        ? projectsData 
+        : projectsData.filter(proj => proj.category === activeTab);
+
     return (
         <>
             <section className="page-title">
@@ -27,8 +35,23 @@ const Project = () => {
 
             <section className="bloglist">
                 <div className="container">
+                    <div className="row mb-50">
+                        <div className="col-12 text-center">
+                            <div className="project-tabs">
+                                {categories.map(category => (
+                                    <button
+                                        key={category}
+                                        className={`tab-btn ${activeTab === category ? 'active' : ''}`}
+                                        onClick={() => setActiveTab(category)}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
-                        {projectsData.map((proj) => (
+                        {filteredProjects.map((proj) => (
                             <div key={proj.id} className="col-md-4 col-sm-12 mb-30">
                                 <div className="blog-box-2">
                                     <div className="image">
@@ -46,6 +69,7 @@ const Project = () => {
                                             </Link>
                                         </div>
                                         <Link to={`/project/${proj.id}`} className="title">{proj.title}</Link>
+                                        <div className="badge mb-2" style={{ backgroundColor: 'var(--primary-color)', color: 'white', padding: '2px 8px', borderRadius: '4px', fontSize: '10px', display: 'inline-block' }}>{proj.category}</div>
                                         <p className="text text-justify">{proj.description.substring(0, 150)}...</p>
                                     </div>
                                 </div>
@@ -54,8 +78,54 @@ const Project = () => {
                     </div>
                 </div>
             </section>
+            
+            <style>{`
+                .project-tabs {
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    margin-bottom: 40px;
+                }
+                .tab-btn {
+                    padding: 12px 28px;
+                    border: 2px solid #e0e0e0;
+                    background: #fff;
+                    color: #444;
+                    font-weight: 600;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    font-size: 15px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                }
+                .tab-btn:hover {
+                    border-color: #615CFD;
+                    color: #615CFD;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                }
+                .tab-btn.active {
+                    background: linear-gradient(135deg, #615CFD, #827dfd);
+                    border-color: transparent;
+                    color: #fff;
+                    box-shadow: 0 10px 20px rgba(97, 92, 253, 0.3);
+                    transform: translateY(-2px);
+                }
+                .badge {
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                .mb-50 {
+                    margin-bottom: 50px;
+                }
+            `}</style>
         </>
     );
 };
 
 export default Project;
+

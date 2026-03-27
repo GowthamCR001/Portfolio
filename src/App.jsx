@@ -11,6 +11,10 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import ProjectDetails from './pages/ProjectDetails';
 import Support from './pages/Support';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
+import RefundPolicy from './pages/RefundPolicy';
+import ScrollTopButton from './components/ScrollTopButton';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
@@ -22,8 +26,6 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 };
-
-import ScrollTopButton from './components/ScrollTopButton';
 
 const MainContent = () => {
   const location = useLocation();
@@ -42,6 +44,9 @@ const MainContent = () => {
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
       </Routes>
       {!isHomePage && <Footer />}

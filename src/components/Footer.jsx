@@ -23,7 +23,13 @@ const Footer = () => {
                                     <li><Link to="/certificate">Certificates</Link></li>
                                     <li><Link to="/contact">Contact</Link></li>
                                 </ul>
-                                <p>© 2026 Gowtham C R — Built with focus, discipline & creativity.</p>
+                                <ul className="list mt-2" style={{ fontSize: '14px', opacity: 0.7 }}>
+                                    <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+                                    <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
+                                    <li><Link to="/refund-policy">Refund & Cancellation</Link></li>
+                                </ul>
+                                <p className="mt-4">© 2026 Gowtham C R — Built with focus, discipline & creativity.</p>
+                                <p style={{ fontSize: '13px', opacity: 0.6 }}>Hassan, Karnataka, India | gcr.gowthamcr001@gmail.com</p>
                             </div>
 
                             <ul className="list-social">

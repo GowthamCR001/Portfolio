@@ -12,6 +12,8 @@ const Support = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
+    const amountOptions = [10, 20, 30, 50];
+
     useEffect(() => {
         if (window.AOS) {
             window.AOS.init({
@@ -21,7 +23,6 @@ const Support = () => {
             window.AOS.refresh();
         }
 
-        // Real-time listener for supporters
         const supportersRef = query(ref(db, 'supporters'), limitToLast(10));
         const unsubscribe = onValue(supportersRef, (snapshot) => {
             const data = snapshot.val();
@@ -29,7 +30,7 @@ const Support = () => {
                 const list = Object.entries(data).map(([key, value]) => ({
                     id: key,
                     ...value
-                })).reverse(); // Show latest first
+                })).reverse();
                 setSupporters(list);
             } else {
                 setSupporters([]);
@@ -43,57 +44,98 @@ const Support = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const selectAmount = (amt) => {
+        setFormData({ ...formData, amount: amt.toString() });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.name || !formData.amount) return;
 
-        // Razorpay expects amount in paise (1 INR = 100 paise)
-        const amountInPaise = parseInt(formData.amount) * 100;
-
-        const options = {
-            key: "rzp_test_SJW5T5mHS22MDz", // TODO: Replace with your actual Razorpay Key ID
-            amount: amountInPaise,
-            currency: "INR",
-            name: "Gowtham C R",
-            description: "Support my work",
-            image: "/assets/images/logo/Gcr-logo.png",
-            handler: async function (response) {
-                // This callback runs only AFTER a successful payment
-                setIsSubmitting(true);
-                try {
-                    await push(ref(db, 'supporters'), {
-                        name: formData.name,
-                        amount: formData.amount,
-                        message: formData.message,
-                        payment_id: response.razorpay_payment_id,
-                        date: new Date().toLocaleDateString('en-IN', {
-                            day: '2-digit',
-                            month: 'long',
-                            year: 'numeric'
-                        })
-                    });
-                    setFormData({ name: '', amount: '', message: '' });
-                    setShowSuccess(true);
-                    setTimeout(() => setShowSuccess(false), 5000);
-                } catch (error) {
-                    console.error("Error saving supporter:", error);
-                }
-                setIsSubmitting(false);
-            },
-            prefill: {
-                name: formData.name,
-            },
-            theme: {
-                color: "#5C27FE"
-            }
-        };
+        setIsSubmitting(true);
 
         try {
+            // Step 1: Create order on backend
+            const orderRes = await fetch('/api/create-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount: formData.amount })
+            });
+
+            if (!orderRes.ok) throw new Error('Order creation failed');
+            const orderData = await orderRes.json();
+
+            // Step 2: Open Razorpay checkout
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_SJW5T5mHS22MDz",
+                amount: orderData.amount,
+                currency: orderData.currency,
+                name: "Gowtham C R",
+                description: "Voluntary donation to support software development",
+                order_id: orderData.id,
+                image: "/assets/images/logo/Gcr-logo.png",
+                handler: async function (response) {
+                    // Step 3: Verify payment on backend
+                    try {
+                        const verifyRes = await fetch('/api/verify-payment', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_signature: response.razorpay_signature
+                            })
+                        });
+
+                        const verifyData = await verifyRes.json();
+
+                        if (verifyData.status === 'success') {
+                            // Step 4: Save to Database
+                            await push(ref(db, 'supporters'), {
+                                name: formData.name,
+                                amount: formData.amount,
+                                message: formData.message,
+                                payment_id: response.razorpay_payment_id,
+                                date: new Date().toLocaleDateString('en-IN', {
+                                    day: '2-digit',
+                                    month: 'long',
+                                    year: 'numeric'
+                                })
+                            });
+
+                            setFormData({ name: '', amount: '', message: '' });
+                            setShowSuccess(true);
+                            setTimeout(() => setShowSuccess(false), 5000);
+                        } else {
+                            alert("Payment verification failed. Please contact support.");
+                        }
+                    } catch (error) {
+                        console.error("Verification failed:", error);
+                        alert("Error verifying payment.");
+                    } finally {
+                        setIsSubmitting(false);
+                    }
+                },
+                prefill: {
+                    name: formData.name,
+                },
+                theme: {
+                    color: "#5C27FE"
+                },
+                modal: {
+                    ondismiss: function () {
+                        setIsSubmitting(false);
+                    }
+                }
+            };
+
             const rzp1 = new window.Razorpay(options);
             rzp1.open();
+
         } catch (error) {
-            console.error("Razorpay failed to load:", error);
-            alert("Razorpay is not loaded. Please check your internet connection.");
+            console.error("Payment flow failed:", error);
+            alert("Payment failed to start. " + error.message);
+            setIsSubmitting(false);
         }
     };
 
@@ -105,8 +147,11 @@ const Support = () => {
                         <div className="block-text center" data-aos="fade-up">
                             <h6 className="sub-heading"><span>Support My Work</span></h6>
                             <h3 className="heading">Buy Me a Coffee ☕</h3>
-                            <p className="desc" style={{ marginBottom: '40px', color: 'rgba(255,255,255,0.7)' }}>
-                                If you find my work helpful, consider tipping. Your support helps me keep building and learning!
+                            <p className="desc" style={{ marginBottom: '20px', color: 'rgba(255,255,255,0.7)' }}>
+                                If you find my work helpful, consider tipping. Your support helps me keep building open-source projects, learning new technologies, and maintaining this portfolio.
+                            </p>
+                            <p className="desc" style={{ marginBottom: '40px', color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>
+                                This is a voluntary donation/tip feature. No physical goods or services are being sold. By proceeding, you agree to our <a href="/terms-conditions" style={{ color: '#5C27FE' }}>Terms</a> and <a href="/refund-policy" style={{ color: '#5C27FE' }}>Refund Policy</a>.
                             </p>
                         </div>
 
@@ -125,7 +170,7 @@ const Support = () => {
                                     <h4 style={{ color: 'white', marginBottom: '30px', textAlign: 'center' }}>Enter Tip Details</h4>
                                     <form onSubmit={handleSubmit}>
                                         <div className="row">
-                                            <div className="col-md-7 mb-4">
+                                            <div className="col-md-12 mb-12">
                                                 <label style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'block' }}>Your Name</label>
                                                 <input
                                                     type="text"
@@ -138,8 +183,28 @@ const Support = () => {
                                                     style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', height: '50px' }}
                                                 />
                                             </div>
-                                            <div className="col-md-5 mb-4">
+                                            <div className="col-md-12 mb-12 mt-4">
                                                 <label style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '10px', display: 'block' }}>Amount (₹)</label>
+                                                <div className="d-flex gap-2 mb-2 flex-wrap">
+                                                    {amountOptions.map(amt => (
+                                                        <button
+                                                            key={amt}
+                                                            type="button"
+                                                            onClick={() => selectAmount(amt)}
+                                                            style={{
+                                                                background: formData.amount === amt.toString() ? '#5C27FE' : 'rgba(255,255,255,0.1)',
+                                                                border: '1px solid rgba(255,255,255,0.2)',
+                                                                borderRadius: '10px',
+                                                                color: 'white',
+                                                                padding: '8px 15px',
+                                                                fontSize: '14px',
+                                                                transition: 'all 0.3s'
+                                                            }}
+                                                        >
+                                                            ₹{amt}
+                                                        </button>
+                                                    ))}
+                                                </div>
                                                 <input
                                                     type="number"
                                                     name="amount"
@@ -172,7 +237,7 @@ const Support = () => {
                                             style={{ width: '100%', border: 'none', height: '55px' }}
                                         >
                                             <span style={{ width: '100%', textAlign: 'center' }}>
-                                                {isSubmitting ? 'Recording Payment...' : 'Proceed to Pay'}
+                                                {isSubmitting ? 'Processing...' : 'Proceed to Pay'}
                                             </span>
                                         </button>
                                         {showSuccess && (

@@ -2,7 +2,8 @@ export const projectsData = [
     {
         id: 1,
         title: "Hassan University – Official Website",
-        date: "February 18, 2024",
+        date: "February 20, 2024",
+        category: "Web Development",
         mainImage: "/assets/images/Project/hsn-web.png",
         adminImage: "/assets/images/Project/hsnweb-admin.png",
         description: "A fully responsive university website developed for Hassan University using ASP.NET with N-Tier Architecture, designed to ensure scalability, security, and efficient content management. The application is structured into Business Information, Business Logic, and Business Interface layers, enabling clear separation of concerns, improved maintainability, high reusability, and optimized performance—making the system robust, future-ready, and easy to scale.",
@@ -19,9 +20,10 @@ export const projectsData = [
     {
         id: 2,
         title: "ILS Books – E-Book Platform",
-        date: "February 18, 2024",
+        date: "March 01, 2025",
+        category: "Web Development",
         mainImage: "/assets/images/Project/ils-web.png",
-        adminImage: "/assets/images/Project/ils-web-admin.png", // Placeholder if no admin image
+        adminImage: "/assets/images/Project/ils-web-admin.png",
         description: "Developed an online eBook platform with dynamic book listings, advanced search by title, author, and category, secure payments, and an admin management dashboard.",
         detailsContent: [
             "The platform allows users to browse and purchase books seamlessly. It features a responsive design and an intuitive user interface.",
@@ -36,7 +38,8 @@ export const projectsData = [
     {
         id: 3,
         title: "EIMS – Educational Institute Management System",
-        date: "February 18, 2024",
+        date: "January 18, 2025",
+        category: "Web Development",
         mainImage: "/assets/images/Project/eims-web-cover.png",
         adminImage: "/assets/images/Project/eims-web-cover.png",
         description: "A centralized management system for educational institutions, featuring admissions, student records, fee management, academic reports, and secure user authentication.",
@@ -53,7 +56,8 @@ export const projectsData = [
     {
         id: 4,
         title: "United Phosphates And Minerals",
-        date: "February 18, 2022",
+        date: "August 14, 2025",
+        category: "Web Development",
         mainImage: "/assets/images/Project/upm-web.png",
         adminImage: "/assets/images/Project/ump-web-admin.png",
         description: "A corporate website for United Phosphates and Minerals, showcasing products and company information.",
@@ -69,7 +73,8 @@ export const projectsData = [
     {
         id: 5,
         title: "HKS International School",
-        date: "February 18, 2024",
+        date: "September 09, 2025",
+        category: "Web Development",
         mainImage: "/assets/images/Project/hks-web.png",
         adminImage: "/assets/images/Project/hks-web-admin.png",
         description: "Official website for HKS International School, providing information on curriculum, admissions, and school activities.",
@@ -85,7 +90,8 @@ export const projectsData = [
     {
         id: 6,
         title: "QR Code Resto",
-        date: "February 18, 2022",
+        date: "November 12, 2025",
+        category: "Web Development",
         mainImage: "/assets/images/Project/resto-web-cover.png",
         adminImage: "/assets/images/Project/resto-web-cover.png",
         description: "A digital menu system using QR codes, allowing restaurant customers to view menus and place orders from their phones.",
@@ -97,5 +103,42 @@ export const projectsData = [
             "Restaurant admin panel for managing menu items, categories, and orders."
         ],
         tags: ["qr-code", "restaurant", "digital-menu"]
+    },
+    {
+        id: 7,
+        title: "Gnana Bindhu Coaching Centre",
+        date: "February 16, 2026",
+        category: "App Development",
+        mainImage: "/assets/images/Project/gnana-app.png",
+        adminImage: "/assets/images/Project/gnana_App_admin.png",
+        description: "A dedicated mobile application for Gnana Bindhu Coaching Centre, designed to facilitate learning and communication between students, parents, and teachers.",
+        detailsContent: [
+            "Features include online classes, study materials, attendance tracking, and performance reports.",
+            "Interactive quizzes and homework management system."
+        ],
+        adminContent: [
+            "Admin panel for managing student enrollments, course content, and notifications.",
+            "Provides insights into student engagement and progress."
+        ],
+        tags: ["mobile-app", "education", "flutter", "learning-management"]
+    },
+    {
+        id: 8,
+        title: "QR code Hotel management",
+        date: "March 05, 2026",
+        category: "App Development",
+        mainImage: "/assets/images/Project/hotel-app.png",
+        adminImage: "/assets/images/Project/hotel-app.png",
+        description: "A comprehensive hotel management mobile application that leverages QR code technology for seamless guest check-ins, room service orders, and facility bookings.",
+        detailsContent: [
+            "Guests can scan QR codes in their rooms to access services, view menus, and request housekeeping.",
+            "Includes an integrated payment gateway for easy billing."
+        ],
+        adminContent: [
+            "Hotel staff dashboard for managing room status, service requests, and inventory.",
+            "Real-time analytics for operational efficiency."
+        ],
+        tags: ["mobile-app", "hotel-management", "qr-code", "service-automation"]
     }
 ];
+
