@@ -80,6 +80,43 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Added Services Section for Razorpay Compliance */}
+            <div className="container mt-5 pt-5" id="business-services">
+                <div className="row justify-content-center">
+                    <div className="col-lg-8 text-center">
+                        <div className="block-text">
+                            <h6 className="sub-heading"><span>Business Offerings</span></h6>
+                            <h3 className="heading">Professional Services</h3>
+                            <p className="desc mb-5">I provide end-to-end digital solutions for businesses and individuals. From UI/UX design to full-stack development, I help bring your vision to life with precision and quality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-4">
+                    {[
+                        { title: 'Web Development', desc: 'Custom React, .NET, and Full-stack web applications tailored to your business needs.', icon: '🌐' },
+                        { title: 'UI/UX Design', desc: 'Modern, intuitive design systems and prototypes using Figma and Adobe XD.', icon: '🎨' },
+                        { title: 'API Integration', desc: 'Connecting your applications with third-party services and robust backend systems.', icon: '🔌' },
+                        { title: 'Technical Consulting', desc: 'Architecture reviews, performance optimization, and technology stack guidance.', icon: '💡' }
+                    ].map((service, index) => (
+                        <div className="col-md-6 col-lg-3" key={index}>
+                            <div className="service-item p-4 text-center" style={{ 
+                                background: 'rgba(255,255,255,0.03)', 
+                                borderRadius: '20px', 
+                                border: '1px solid rgba(255,255,255,0.05)',
+                                height: '100%'
+                            }}>
+                                <div style={{ fontSize: '40px', marginBottom: '20px' }}>{service.icon}</div>
+                                <h5 style={{ color: 'white', marginBottom: '15px' }}>{service.title}</h5>
+                                <p style={{ fontSize: '14px', opacity: 0.7 }}>{service.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="text-center mt-5">
+                    <a href="/services" className="action-btn"><span>View Service Pricing & Hire</span></a>
+                </div>
+            </div>
         </section>
     );
 };

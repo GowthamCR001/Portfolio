@@ -137,12 +137,46 @@ const Services = () => {
                     <div className="col-lg-10">
                         {/* Header Section */}
                         <div className="block-text center" data-aos="fade-up">
-                            <h6 className="sub-heading"><span>Collaboration</span></h6>
-                            <h3 className="heading">Professional Services</h3>
-                            <p className="mb-30" style={{ maxWidth: '700px', margin: '0 auto 30px' }}>
-                                Hire me for custom web development, UI/UX design, or technical consultations.
-                                Use this portal to securely pay for project milestones and professional services.
+                            <h6 className="sub-heading"><span>Professional Offerings</span></h6>
+                            <h3 className="heading">Service Pricing & Bookings</h3>
+                            <p className="mb-30" style={{ maxWidth: '750px', margin: '0 auto 30px' }}>
+                                I offer specialized software development and design services for businesses.
+                                Select a plan or pay for a pre-discussed project milestone securely through the portal.
                             </p>
+                        </div>
+
+                        {/* Pricing Tiers Section */}
+                        <div className="row mb-5 justify-content-center">
+                            {[
+                                { title: 'Basic Consultation', price: '₹500', hours: '1 Hour', features: ['Project Architecture Guidance', 'Tech-Stack Selection', '1-on-1 Mentorship Session'] },
+                                { title: 'Mini Project / Fix', price: '₹2,500', hours: '1-3 Days', features: ['Single Page UI Design', 'Minor API Integrations', 'Performance Optimization'] },
+                                { title: 'Professional Web App', price: '₹10,000+', hours: '1-2 Weeks', features: ['Full-stack Application', 'Custom Database Architecture', 'Advanced Security Integration'] }
+                            ].map((pkg, idx) => (
+                                <div className="col-lg-4 mb-4" key={idx}>
+                                    <div className="pricing-card p-4 h-100" style={{
+                                        background: 'rgba(255,255,255,0.04)',
+                                        borderRadius: '25px',
+                                        border: '1px solid rgba(255,255,255,0.08)',
+                                        textAlign: 'center'
+                                    }}>
+                                        <h5 style={{ color: 'white', marginBottom: '15px' }}>{pkg.title}</h5>
+                                        <h2 style={{ color: '#5C27FE', marginBottom: '20px' }}>{pkg.price}</h2>
+                                        <p style={{ opacity: 0.6, fontSize: '14px', marginBottom: '20px' }}>Time: {pkg.hours}</p>
+                                        <ul className="text-start" style={{ fontSize: '14px', opacity: 0.7, marginBottom: '25px', listStyle: 'none', padding: 0 }}>
+                                            {pkg.features.map((f, i) => (
+                                                <li key={i} className="mb-2">✅ {f}</li>
+                                            ))}
+                                        </ul>
+                                        <button 
+                                            onClick={() => selectAmount(parseInt(pkg.price.replace('₹', '').replace(',', '')))}
+                                            className="action-btn w-100"
+                                            style={{ padding: '10px 0', fontSize: '14px' }}
+                                        >
+                                            <span>Select Plan</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
                         <div className="row mt-12">
