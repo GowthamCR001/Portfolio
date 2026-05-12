@@ -7,8 +7,8 @@ const Project = () => {
 
     const categories = ['All', 'Web Development', 'App Development', 'Others'];
 
-    const filteredProjects = activeTab === 'All' 
-        ? projectsData 
+    const filteredProjects = activeTab === 'All'
+        ? projectsData
         : projectsData.filter(proj => proj.category === activeTab);
 
     return (
@@ -33,7 +33,37 @@ const Project = () => {
                 </div>
             </section>
 
-            <section className="bloglist">
+            <section className="experience-summary" style={{ padding: '60px 0', background: 'rgba(255, 255, 255, 0.02)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="container">
+                    <div className="row g-4">
+                        <div className="col-md-6">
+                            <div className="exp-card p-4 h-100" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column' }}>
+                                <h5 style={{ color: '#5C27FE', marginBottom: '15px' }}>Dendron IT Solution</h5>
+                                <p style={{ color: 'white', opacity: 0.8, fontSize: '16px', lineHeight: '1.6', flexGrow: 1 }}>
+                                    I have developed <strong>32+ static and dynamic websites</strong>, delivering responsive designs and scalable solutions tailored to diverse client requirements.
+                                </p>
+                                <div className="mt-4">
+                                    <Link to="/dendron-projects" className="action-btn" style={{ padding: '10px 25px' }}><span>View More</span></Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-6">
+                            <div className="exp-card p-4 h-100" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column' }}>
+                                <h5 style={{ color: '#5C27FE', marginBottom: '15px' }}>Pixela Media Pvt Ltd</h5>
+                                <p style={{ color: 'white', opacity: 0.8, fontSize: '16px', lineHeight: '1.6', flexGrow: 1 }}>
+                                    I have built <strong>5+ websites in React</strong>, developed <strong>2+ software solutions</strong>, and engineered <strong>5+ App developments</strong> (with 1 App currently Live).
+                                </p>
+                                <div className="mt-4">
+                                    <Link to="/pixela-projects" className="action-btn" style={{ padding: '10px 25px' }}><span>View More</span></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="bloglist" style={{ paddingTop: '60px' }}>
                 <div className="container">
                     <div className="row mb-50">
                         <div className="col-12 text-center">
@@ -78,7 +108,7 @@ const Project = () => {
                     </div>
                 </div>
             </section>
-            
+
             <style>{`
                 .project-tabs {
                     display: flex;

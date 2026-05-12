@@ -14,6 +14,8 @@ import Services from './pages/Services';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import RefundPolicy from './pages/RefundPolicy';
+import DendronProjects from './pages/DendronProjects';
+import PixelaProjects from './pages/PixelaProjects';
 import ScrollTopButton from './components/ScrollTopButton';
 
 // ScrollToTop component to reset scroll on route change
@@ -47,9 +49,11 @@ const MainContent = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/dendron-projects" element={<DendronProjects />} />
+        <Route path="/pixela-projects" element={<PixelaProjects />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
       </Routes>
-      {!isHomePage && <Footer />}
+      <Footer />
       <ScrollTopButton />
     </div>
   );

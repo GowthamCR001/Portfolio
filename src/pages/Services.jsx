@@ -12,13 +12,18 @@ const Services = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Predefined service amounts
-    const serviceOptions = [500, 1000, 2500, 5000];
+    const serviceOptions = [8000, 12000, 25000, 50000];
 
     useEffect(() => {
-        if (window.AOS) {
-            window.AOS.init({ duration: 2000, once: true });
-            window.AOS.refresh();
-        }
+        const initAOS = () => {
+            if (window.AOS) {
+                window.AOS.init({ duration: 2000, once: true });
+                window.AOS.refresh();
+            } else {
+                setTimeout(initAOS, 100);
+            }
+        };
+        initAOS();
 
         // Fetch recent project payments from Firebase
         const paymentsRef = query(ref(db, 'project_payments'), limitToLast(5));
@@ -148,32 +153,34 @@ const Services = () => {
                         {/* Pricing Tiers Section */}
                         <div className="row mb-5 justify-content-center">
                             {[
-                                { title: 'Basic Consultation', price: '₹500', hours: '1 Hour', features: ['Project Architecture Guidance', 'Tech-Stack Selection', '1-on-1 Mentorship Session'] },
-                                { title: 'Mini Project / Fix', price: '₹2,500', hours: '1-3 Days', features: ['Single Page UI Design', 'Minor API Integrations', 'Performance Optimization'] },
-                                { title: 'Professional Web App', price: '₹10,000+', hours: '1-2 Weeks', features: ['Full-stack Application', 'Custom Database Architecture', 'Advanced Security Integration'] }
+                                { title: 'Basic Website', price: '₹8,000', hours: '5 Pages', features: ['Custom UI Design', 'Responsive Layout', 'Contact Form Integration', 'SEO Optimization'] },
+                                { title: 'Mini Project', price: '₹12,000', hours: '9 Pages', features: ['Advanced UI/UX', 'Multiple Page Routing', 'Database Integration', 'Admin Dashboard'] },
+                                { title: 'Professional Web App', price: '₹25,000+', hours: 'Custom', features: ['Full-stack Application', 'Custom Database Architecture', 'Advanced Security Integration', 'Cloud Deployment'] }
                             ].map((pkg, idx) => (
                                 <div className="col-lg-4 mb-4" key={idx}>
-                                    <div className="pricing-card p-4 h-100" style={{
+                                    <div className="pricing-card p-4 h-100 d-flex flex-column" style={{
                                         background: 'rgba(255,255,255,0.04)',
                                         borderRadius: '25px',
                                         border: '1px solid rgba(255,255,255,0.08)',
                                         textAlign: 'center'
                                     }}>
                                         <h5 style={{ color: 'white', marginBottom: '15px' }}>{pkg.title}</h5>
-                                        <h2 style={{ color: '#5C27FE', marginBottom: '20px' }}>{pkg.price}</h2>
+                                        <h2 style={{ color: '#5C27FE', marginBottom: '20px', fontSize: '36px' }}>{pkg.price}</h2>
                                         <p style={{ opacity: 0.6, fontSize: '14px', marginBottom: '20px' }}>Time: {pkg.hours}</p>
-                                        <ul className="text-start" style={{ fontSize: '14px', opacity: 0.7, marginBottom: '25px', listStyle: 'none', padding: 0 }}>
+                                        <ul className="text-start flex-grow-1" style={{ fontSize: '14px', opacity: 0.7, marginBottom: '25px', listStyle: 'none', padding: 0 }}>
                                             {pkg.features.map((f, i) => (
                                                 <li key={i} className="mb-2">✅ {f}</li>
                                             ))}
                                         </ul>
-                                        <button 
-                                            onClick={() => selectAmount(parseInt(pkg.price.replace('₹', '').replace(',', '')))}
-                                            className="action-btn w-100"
-                                            style={{ padding: '10px 0', fontSize: '14px' }}
-                                        >
-                                            <span>Select Plan</span>
-                                        </button>
+                                        <div className="mt-auto">
+                                            <button
+                                                onClick={() => selectAmount(parseInt(pkg.price.replace('₹', '').replace(',', '')))}
+                                                className="action-btn w-100"
+                                                style={{ padding: '10px 0', fontSize: '14px', background: 'transparent', border: 'none', outline: 'none' }}
+                                            >
+                                                <span>Select Plan</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
