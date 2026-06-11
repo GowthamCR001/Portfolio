@@ -19,6 +19,20 @@ const Certificate = () => {
             });
             window.AOS.refresh();
         }
+        if (window.Swiper) {
+            new window.Swiper(".team-swiper", {
+                breakpoints: {
+                    0: { slidesPerView: 1, spaceBetween: 0 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                freeMode: true,
+            });
+        }
     }, []);
 
     return (
@@ -30,7 +44,7 @@ const Certificate = () => {
                         <h6 className="sub-heading"><span>Certificate</span></h6>
                         <h3 className="heading wow" data-splitting>That Showcase Our <br /> Expertise</h3>
                     </div>
-                    <div className="col-md-3 col-sm-12">
+                    <div className="col-12">
                         <div className="swiper team-swiper">
                             <div className="swiper-wrapper">
                                 <div className="swiper-slide">
@@ -50,6 +64,46 @@ const Certificate = () => {
                                         <div className="content" style={{ textAlign: 'center' }}>
                                             <Link to="#" className="h5 name">TechieAid</Link>
                                             <p className="postion">Internship Full stack Develope</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="swiper-slide">
+                                    <div className="team-box" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
+                                        <div className="image" onClick={() => openModal("/assets/images/certificate/certificate2.png")} style={{ cursor: 'pointer', overflow: 'hidden', height: 'auto' }}>
+                                            <img
+                                                src="/assets/images/certificate/certificate2.png"
+                                                alt="Great Learning Academy Certificate"
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                    objectFit: 'cover',
+                                                    display: 'block'
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="content" style={{ textAlign: 'center' }}>
+                                            <Link to="#" className="h5 name">Great Learning Academy</Link>
+                                            <p className="postion">OOPs in Java</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="swiper-slide">
+                                    <div className="team-box" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+                                        <div className="image" onClick={() => openModal("/assets/images/certificate/certificate3.png")} style={{ cursor: 'pointer', overflow: 'hidden', height: 'auto' }}>
+                                            <img
+                                                src="/assets/images/certificate/certificate3.png"
+                                                alt="Simplilearn Certificate"
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                    objectFit: 'cover',
+                                                    display: 'block'
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="content" style={{ textAlign: 'center' }}>
+                                            <Link to="#" className="h5 name">Simplilearn</Link>
+                                            <p className="postion">Programming with Python 3.X</p>
                                         </div>
                                     </div>
                                 </div>
