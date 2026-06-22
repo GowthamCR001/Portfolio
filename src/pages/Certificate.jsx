@@ -19,21 +19,15 @@ const Certificate = () => {
             });
             window.AOS.refresh();
         }
-        if (window.Swiper) {
-            new window.Swiper(".team-swiper", {
-                breakpoints: {
-                    0: { slidesPerView: 1, spaceBetween: 0 },
-                    768: { slidesPerView: 2, spaceBetween: 30 },
-                    1024: { slidesPerView: 3, spaceBetween: 30 },
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                freeMode: true,
-            });
-        }
     }, []);
+
+    const certificates = [
+        { id: 1, img: "/assets/images/certificate/certificate01.png", title: "TechieAid", subtitle: "Internship Full stack Development", delay: "0" },
+        { id: 2, img: "/assets/images/certificate/certificate02.png", title: "Simplilearn SkillUp", subtitle: "Generative AI", delay: "100" },
+        { id: 3, img: "/assets/images/certificate/certificate03.png", title: "Simplilearn SkillUp", subtitle: "RAG Course for beginners", delay: "200" },
+        { id: 4, img: "/assets/images/certificate/certificate04.png", title: "Great Learning Academy", subtitle: "OOPs in Java", delay: "300" },
+        { id: 5, img: "/assets/images/certificate/certificate05.png", title: "Simplilearn SkillUp", subtitle: "Programming with Python 3.X", delay: "400" },
+    ];
 
     return (
         <section className="team">
@@ -44,71 +38,57 @@ const Certificate = () => {
                         <h6 className="sub-heading"><span>Certificate</span></h6>
                         <h3 className="heading wow" data-splitting>That Showcase Our <br /> Expertise</h3>
                     </div>
-                    <div className="col-12">
-                        <div className="swiper team-swiper">
-                            <div className="swiper-wrapper">
-                                <div className="swiper-slide">
-                                    <div className="team-box" data-aos="fade-up" data-aos-duration="2000">
-                                        <div className="image" onClick={() => openModal("/assets/images/certificate/certificate1.png")} style={{ cursor: 'pointer', overflow: 'hidden', height: 'auto' }}>
-                                            <img
-                                                src="/assets/images/certificate/certificate1.png"
-                                                alt="TechieAid Certificate"
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                    objectFit: 'cover',
-                                                    display: 'block'
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="content" style={{ textAlign: 'center' }}>
-                                            <Link to="#" className="h5 name">TechieAid</Link>
-                                            <p className="postion">Internship Full stack Develope</p>
-                                        </div>
+                    <div className="col-12 mt-4">
+                        <div className="row">
+                            {/* Big Certificate */}
+                            <div className="col-12 col-lg-5 mb-4">
+                                <div className="team-box h-100 d-flex flex-column" data-aos="fade-up" data-aos-duration="2000">
+                                    <div className="image flex-grow-1 d-flex align-items-center justify-content-center" onClick={() => openModal(certificates[0].img)} style={{ cursor: 'pointer', overflow: 'hidden' }}>
+                                        <img
+                                            src={certificates[0].img}
+                                            alt={`${certificates[0].title} Certificate`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                objectFit: 'cover',
+                                                display: 'block'
+                                            }}
+                                        />
                                     </div>
-                                </div>
-                                <div className="swiper-slide">
-                                    <div className="team-box" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
-                                        <div className="image" onClick={() => openModal("/assets/images/certificate/certificate2.png")} style={{ cursor: 'pointer', overflow: 'hidden', height: 'auto' }}>
-                                            <img
-                                                src="/assets/images/certificate/certificate2.png"
-                                                alt="Great Learning Academy Certificate"
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                    objectFit: 'cover',
-                                                    display: 'block'
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="content" style={{ textAlign: 'center' }}>
-                                            <Link to="#" className="h5 name">Great Learning Academy</Link>
-                                            <p className="postion">OOPs in Java</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="swiper-slide">
-                                    <div className="team-box" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
-                                        <div className="image" onClick={() => openModal("/assets/images/certificate/certificate3.png")} style={{ cursor: 'pointer', overflow: 'hidden', height: 'auto' }}>
-                                            <img
-                                                src="/assets/images/certificate/certificate3.png"
-                                                alt="Simplilearn Certificate"
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                    objectFit: 'cover',
-                                                    display: 'block'
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="content" style={{ textAlign: 'center' }}>
-                                            <Link to="#" className="h5 name">Simplilearn</Link>
-                                            <p className="postion">Programming with Python 3.X</p>
-                                        </div>
+                                    <div className="content mt-auto" style={{ textAlign: 'center', padding: '20px' }}>
+                                        <Link to="#" className="h4 name">{certificates[0].title}</Link>
+                                        <p className="postion" style={{ fontSize: '1.2rem' }}>{certificates[0].subtitle}</p>
                                     </div>
                                 </div>
                             </div>
 
+                            {/* Other 4 Certificates */}
+                            <div className="col-12 col-lg-7">
+                                <div className="row">
+                                    {certificates.slice(1).map((cert) => (
+                                        <div key={cert.id} className="col-12 col-sm-6 mb-4">
+                                            <div className="team-box h-100 d-flex flex-column" data-aos="fade-up" data-aos-duration="2000" data-aos-delay={cert.delay}>
+                                                <div className="image flex-grow-1 d-flex align-items-center justify-content-center" onClick={() => openModal(cert.img)} style={{ cursor: 'pointer', overflow: 'hidden' }}>
+                                                    <img
+                                                        src={cert.img}
+                                                        alt={`${cert.title} Certificate`}
+                                                        style={{
+                                                            width: '100%',
+                                                            height: 'auto',
+                                                            objectFit: 'cover',
+                                                            display: 'block'
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="content mt-auto" style={{ textAlign: 'center', padding: '15px' }}>
+                                                    <Link to="#" className="h6 name">{cert.title}</Link>
+                                                    <p className="postion" style={{ fontSize: '0.9rem' }}>{cert.subtitle}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
